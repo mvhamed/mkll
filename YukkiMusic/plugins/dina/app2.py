@@ -5,7 +5,7 @@ from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
 
-from config 
+import config 
 from YukkiMusic import app, userbot
 from YukkiMusic.core.call import assistant
 
