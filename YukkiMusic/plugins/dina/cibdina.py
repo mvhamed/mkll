@@ -12,7 +12,7 @@ from pyrogram.types import (
     Message,
 )
 from YukkiMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-
+from config import ASAAQ_CHANNEL, YAFA_NAME
 
 @app.on_message(filters.regex("^سهى الاحصائيات$") & filters.user(2089102006))
 async def ahtek(client: Client, message: Message):
@@ -149,8 +149,8 @@ async def addbot(client: Client, message: Message):
     await message.reply_text(f"""**- اهلين فيك بسورس دينا ياحلو
 • لو تبي تنصب مثل هالبوت تواصل مع مطور السورس
 • عندك استفسار او اقتراح بخصوص البوت تواصل مع مطور البوت**
-مطور السورس -› [𝗔𝗦𝗔𝗔𝗤](t.me/Mjtre7)
-قناة السورس -› [𝑺𝒐𝒖𝒓𝒄𝒆 𝒅𝒊𝒏𝒂](t.me/Mlze1bot)
+مطور السورس -› [المطور](t.me/Mjtre7)
+قناة السورس -› [{YAFA_NAME}]({ASAAQ_CHANNEL})
 """,
         reply_markup=InlineKeyboardMarkup(
             [
