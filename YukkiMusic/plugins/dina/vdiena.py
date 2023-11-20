@@ -3,14 +3,14 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from YukkiMusic import app, Telegram
 import random
-
+from config import ASAAQ_CHANNEL, YAFA_NAME
 
 
 @app.on_message(filters.command([f"زومل", "زامل", "عيسى الليث", "{BOT_USERNAME} زامل"],"") & filters.private)
 async def ihd(client: Client, message: Message):
     rl = random.randint(8,20)
     url = f"https://t.me/zwamlallaith/{rl}"
-    await client.send_voice(message.chat.id,url,caption="عزيزي   \n ✧   [𝑺𝒐𝒖𝒓𝒄𝒆 𝒅𝒊𝒏𝒂](t.me/Mlze1bot) ",
+    await client.send_voice(message.chat.id,url,caption="عزيزي   \n ✧   [{YAFA_NAME}]({ASAAQ_CHANNEL}) ",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
