@@ -56,6 +56,11 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 text=_["CLOSEMENU_BUTTON"], callback_data="close"
             )
         ],
+        [
+            InlineKeyboardButton(
+                text=f"{YAFA_NAME}", url=f"{YAFA_CHANNEL}"
+            )
+        ],
     ]
 
 
