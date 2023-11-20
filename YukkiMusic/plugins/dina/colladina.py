@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import Client, filters
 from strings import get_command
 from typing import Union
-from pyrogram.types import Message, VoiceChatStarted, VoiceChatEnded
+from pyrogram.types import Message
 from YukkiMusic import app
 
 @app.on_message(filters.voice_chat_started)
