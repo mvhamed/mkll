@@ -10,6 +10,7 @@
 
 import random
 
+from config import YAFA_CHANNEL, YAFA_NAME
 from pyrogram.types import InlineKeyboardButton
 
 selections = [
