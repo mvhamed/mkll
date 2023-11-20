@@ -1,12 +1,11 @@
 from pyrogram import Client, filters
-from strings.filters import command
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 from config import YAFA_CHANNEL, YAFA_NAME, CHANNEL_SUDO
 from YukkiMusic import app
 
 
-@app.on_message(~filters.edited & filters.incoming & filters.private, group=-1)
+@app.on_message(~filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     if not YAFA_CHANNEL:  # Not compulsory
         return
