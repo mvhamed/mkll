@@ -58,6 +58,16 @@
         "value": "",
         "required": false
       },
+        "ASAAQ_CHANNEL": {
+        "description": "حط هنا معرف قناتك تبدء ب t.me/",
+        "value": "",
+        "required": false
+      },
+      "YAFA_NAME": {
+        "description": "حط هنا اسم قناتك او اسم قناة السورس",
+        "value": "",
+        "required": false
+      }, 
       "LOG_GROUP_ID": {
         "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Use only Group. Please don't use Channel ID.",
         "value": "-1002037012482",
