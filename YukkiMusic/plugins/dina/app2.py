@@ -5,11 +5,14 @@ from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
 
-from config import OWNER_ID
-from FallenMusic import ASS_MENTION, SUNAME, app, userbot
+from config 
+from YukkiMusic import app, userbot
+from YukkiMusic.core.call import assistant
+
+ASS_USERNAME = getme2.username
 
 
-@app.on_message(filters.command(["leaveall", "assleaveall"]) | filters.command(["مغادره","مغادرة","مغادره المكالمات","مغادرة المكالمات"],prefixes= ["/", "!","","#"]) & filters.user(OWNER_ID))
+@app.on_message(filters.command(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
 async def ass_leaveall(_, message: Message):
     lear = await message.reply_text(f"⎊ {ASS_MENTION} جارٍ المغادرة...")
     left = 0
@@ -17,9 +20,9 @@ async def ass_leaveall(_, message: Message):
     chats = []
     async for dialog in userbot.get_dialogs():
         chats.append(int(dialog.chat.id))
-    schat = (await app.get_chat(SUNAME)).id
+    schat = (await app.get_chat(assistant)).id
     for i in chats:
-        if i in (-1001690426912, int(schat)):
+        if i in (-1002037012482, int(schat)):
             continue
         try:
             await userbot.leave_chat(int(i))
