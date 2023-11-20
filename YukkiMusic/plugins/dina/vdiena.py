@@ -10,7 +10,7 @@ from config import ASAAQ_CHANNEL, YAFA_NAME
 async def ihd(client: Client, message: Message):
     rl = random.randint(8,20)
     url = f"https://t.me/zwamlallaith/{rl}"
-    await client.send_voice(message.chat.id,url,caption="عزيزي   \n ✧   [{YAFA_NAME}]({ASAAQ_CHANNEL}) ",
+    await client.send_voice(message.chat.id,url,caption="عزيزي   \n ✧   [ {YAFA_NAME} ]( {ASAAQ_CHANNEL} ) ",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
