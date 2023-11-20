@@ -10,7 +10,7 @@ async def babloo(client: Client, message: Message):
       Startt = "- صعدوا نسمع أغاني 🫂"
       await message.reply_text(Startt)
 
-@app.on_message(filters.voice_chat_ended)
+@app.on_message(filters.video_chat_started)
 async def bablo(client: Client, message: Message): 
       Enddd = "- أصلاً مليت ☹"
       await message.reply_text(Enddd)
