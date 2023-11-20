@@ -12,7 +12,7 @@ from YukkiMusic.core.call import assistant
 ASS_USERNAME = getme2.username
 
 
-@app.on_message(filters.command(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
+@app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
 async def ass_leaveall(_, message: Message):
     lear = await message.reply_text(f"⎊ {ASS_MENTION} جارٍ المغادرة...")
     left = 0
