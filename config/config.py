@@ -64,6 +64,15 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 # GIT TOKEN ( if your edited repo is private)
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
+CHANNEL_SUDO = getenv(
+    "CHANNEL_SUDO", "Mlze1bot"
+)  # معرف قناتك بدون @
+YAFA_NAME = getenv(
+    "YAFA_NAME", "𝑺𝒐𝒖𝒓𝒄𝒆 -› 𝒅𝒊𝒏𝒂 "
+)  # اسم قناتك
+YAFA_CHANNEL = getenv(
+   " YAFA_CHANNEL", "https://t.me/Mlze1bot"
+)  # رابط قناتك
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
     "SUPPORT_CHANNEL", None
