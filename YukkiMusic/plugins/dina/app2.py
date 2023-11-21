@@ -8,12 +8,12 @@ from pyrogram.types import Message
 from YukkiMusic import app
 from YukkiMusic.core.call import Yukki
 
-ASS_USERNAME = getme2.username
+
 
 
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
 async def ass_leaveall(_, message: Message):
-    lear = await message.reply_text(f"⎊ {ASS_MENTION} جارٍ المغادرة...")
+    lear = await message.reply_text(f"⎊  جارٍ المغادرة...")
     left = 0
     failed = 0
     chats = []
@@ -36,9 +36,9 @@ async def ass_leaveall(_, message: Message):
             failed += 1
     try:
         await lear.edit_text(
-            f"<u>**⎊ {ASS_MENTION} تم المغادره:**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
+            f"<u>**⎊  تم المغادره:**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
         )
     except:
         await message.reply_text(
-            f"<u>**⎊ {ASS_MENTION} تم المغادره :**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
+            f"<u>**⎊  تم المغادره :**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
         )
