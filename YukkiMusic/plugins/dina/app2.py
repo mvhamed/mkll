@@ -24,7 +24,7 @@ from pyrogram.types import Message
            
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
 async def auto_leave(_, message: Message):
-    lear = await message.reply_text(f"⎊ {ASS_MENTION} جارٍ المغادرة...")
+    lear = await message.reply_text(f"★  جارٍ المغادرة...")
     left = 0
     failed = 0
     chats = []
@@ -46,9 +46,9 @@ async def auto_leave(_, message: Message):
             failed += 1
     try:
         await lear.edit_text(
-            f"<u>**⎊ {ASS_MENTION} تم المغادره:**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
+            f"<u>**★  تم المغادره:**</u>\n\n**★ خرج من :** `{left}`\n** فشـل :** `{failed}`"
         )
     except:
         await message.reply_text(
-            f"<u>**⎊ {ASS_MENTION} تم المغادره :**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
+            f"<u>**★  تم المغادره :**</u>\n\n**★ خرج من :** `{left}`\n** فشـل :** `{failed}`"
   )
