@@ -18,6 +18,8 @@ from YukkiMusic.utils.database import (get_client, is_active_chat,
 from YukkiMusic.core.userbot import assistants
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message
+
 
            
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
