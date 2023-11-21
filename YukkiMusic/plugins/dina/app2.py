@@ -10,7 +10,7 @@ from pyrogram.errors import UserAlreadyParticipant
  
 from YukkiMusic.core.call import Yukki
 
-
+from YukkiMusic import app
 
 
 
