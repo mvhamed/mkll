@@ -19,7 +19,7 @@ async def ass_leaveall(_, message: Message):
     chats = []
     async for dialog in Yukki.get_dialogs():
         chats.append(int(dialog.chat.id))
-    schat = (await app.get_chat(assistant)).id
+    schat = (await app.get_chat(chat_id))
     for i in chats:
         if i in (-1002037012482, int(schat)):
             continue
