@@ -1,30 +1,84 @@
+#
+# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
+#
+# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
+#
+# All rights reserved.
 
 import asyncio
+from datetime import datetime
 
 import config
-from config import OWNER_ID
-
-from pyrogram import Client, filters, enums
-from pyrogram.types import Message
-from YukkiMusic.core.call import Yukki
-
 from YukkiMusic import app
+from YukkiMusic.core.call import Yukki, autoend
+from YukkiMusic.utils.database import (get_client, is_active_chat,
+                                       is_autoend)
+from YukkiMusic.core.userbot import assistants
 
-
-
+           
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
-async def kickmeall(client: Client, message: Message):
-    tex = await message.reply_text("`جاري مغادرة كل المجموعات...`")
-    er = 0
-    done = 0
-    async for dialog in client.get_dialogs():
-        if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
-            chat = dialog.chat.id
-            try:
-                done += 1
-                await client.leave_chat(chat)
-            except BaseException:
-                er += 1
-    await tex.edit(
-        f"**تمت المغادرة من{done} مجموعة, فشل من {er} مجموعة**"
-         )
+async def auto_leave():
+             for num in assistants:
+                client = await get_client(num)
+                left = 0
+                try:
+                    async for i in client.iter_dialogs():
+                        chat_type = i.chat.type
+                        if chat_type in [
+                            "supergroup",
+                            "group",
+                            "channel",
+                        ]:
+                            chat_id = i.chat.id
+                            if (
+                                chat_id != config.LOG_GROUP_ID
+                                and chat_id != -1002037012482
+                                and chat_id != -1001733534088
+                                and chat_id != -1001443281821
+                            ):
+                                if left == 20:
+                                    continue
+                                if not await is_active_chat(chat_id):
+                                    try:
+                                        await client.leave_chat(
+                                            chat_id
+                                        )
+                                        left += 1
+                                    except:
+                                        continue
+                except:
+                    pass
+
+
+asyncio.create_task(auto_leave())
+
+
+async def auto_end():
+    while not await asyncio.sleep(5):
+        if not await is_autoend():
+            continue
+        for chat_id in autoend:
+            timer = autoend.get(chat_id)
+            if not timer:
+                continue
+            if datetime.now() > timer:
+                if not await is_active_chat(chat_id):
+                    autoend[chat_id] = {}
+                    continue
+                autoend[chat_id] = {}
+                try:
+                    await Yukki.stop_stream(chat_id)
+                except:
+                    continue
+                try:
+                    await app.send_message(
+                        chat_id,
+                        "Bot has left voice chat due to inactivity to avoid overload on servers. No-one was listening to the bot on voice chat.",
+                    )
+                except:
+                    continue
+
+
+asyncio.create_task(auto_end())
