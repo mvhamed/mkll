@@ -11,7 +11,7 @@ import asyncio
 from datetime import datetime
 
 import config
-from YukkiMusic import app
+from YukkiMusic import app, userbot
 from YukkiMusic.core.call import Yukki, autoend
 from YukkiMusic.utils.database import (get_client, is_active_chat,
                                        is_autoend)
@@ -28,13 +28,13 @@ async def auto_leave(_, message: Message):
     left = 0
     failed = 0
     chats = []       
-    async for dialog in Yukki.iter_dialogs():
+    async for dialog in userbot.iter_dialogs():
         chats.append(int(dialog.chat.id))
     for i in chats:
         if i in (-1001690426912, -1002037012482):
             continue
         try:
-            await Yukki.leave_chat(int(i))
+            await userbot.leave_chat(int(i))
             left += 1
         except FloodWait as e:
             flood_time = int(e.value)
