@@ -16,6 +16,8 @@ from YukkiMusic.core.call import Yukki, autoend
 from YukkiMusic.utils.database import (get_client, is_active_chat,
                                        is_autoend)
 from YukkiMusic.core.userbot import assistants
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
            
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
