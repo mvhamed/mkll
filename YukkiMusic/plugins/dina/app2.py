@@ -28,6 +28,10 @@ async def auto_leave(_, message: Message):
     left = 0
     failed = 0
     chats = []
+    for num in assistants:
+                 client = await get_client(num)
+                 left = 0
+                
     async for dialog in client.iter_dialogs():
         chats.append(int(dialog.chat.id))
     for i in chats:
