@@ -6,7 +6,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import Message
  
 from YukkiMusic import app
-from YukkiMusic.core.userbot import Userbot
+
 
 
 
@@ -17,14 +17,14 @@ async def ass_leaveall(_, message: Message):
     left = 0
     failed = 0
     chats = []
-    async for dialog in Userbot.get_dialogs():
+    async for dialog in app.get_dialogs():
         chats.append(int(dialog.chat.id))
     schat = (await app.get_chat(chat_id))
     for i in chats:
         if i in (-1002037012482, int(schat)):
             continue
         try:
-            await Userbot.leave_chat(int(i))
+            await app.leave_chat(int(i))
             left += 1
         except FloodWait as e:
             flood_time = int(e.value)
