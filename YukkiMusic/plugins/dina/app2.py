@@ -27,18 +27,14 @@ async def auto_leave(_, message: Message):
     lear = await message.reply_text(f"★  جارٍ المغادرة...")
     left = 0
     failed = 0
-    chats = []
-    for num in assistants:
-                 client = await get_client(num)
-                 left = 0
-                
-    async for dialog in client.iter_dialogs():
+    chats = []       
+    async for dialog in Yukki.iter_dialogs():
         chats.append(int(dialog.chat.id))
     for i in chats:
         if i in (-1001690426912, -1002037012482):
             continue
         try:
-            await client.leave_chat(int(i))
+            await Yukki.leave_chat(int(i))
             left += 1
         except FloodWait as e:
             flood_time = int(e.value)
