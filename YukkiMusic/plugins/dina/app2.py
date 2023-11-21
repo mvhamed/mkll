@@ -3,11 +3,9 @@ import asyncio
 
 import config
 from config import OWNER_ID
-from pyrogram import filters
-from pyrogram.errors import FloodWait
+
+from pyrogram import Client, filters, enums
 from pyrogram.types import Message
-from pyrogram.errors import UserAlreadyParticipant
- 
 from YukkiMusic.core.call import Yukki
 
 from YukkiMusic import app
@@ -15,25 +13,18 @@ from YukkiMusic import app
 
 
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
-async def leave_all(client, message):
-    if message.from_user.id not in OWNER_ID:
-        return
-
-    left = 0
-    failed = 0
-    lol = await message.reply("🔄 **سوف يغادر الحساب المساعد من المجموعات**!")
-    async for dialog in Yukki.iter_dialogs():
-        try:
-            await Yukki.leave_chat(dialog.chat.id)
-            left += 1
-            await lol.edit(
-                f"الحساب المساعد يغادر جميع المجموعات...\n\nخرج من: {left} مجموعه.\nفشل مغادرة : {failed} مجموعه."
-            )
-        except BaseException:
-            failed += 1
-            await lol.edit(
-                f"الحساب المساعد يغادر جميع المجموعات...\n\nخرج من: {left} مجموعه.\nفشل مغادرة : {failed} مجموعه."
-            )
-    await client.send_message(
-        message.chat.id, f"✅ تم الخروج من: {left} مجموعه.\n❌ فشل: {failed} مجموعه."
+async def kickmeall(client: Client, message: Message):
+    tex = await message.reply_text("`جاري مغادرة كل المجموعات...`")
+    er = 0
+    done = 0
+    async for dialog in client.get_dialogs():
+        if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
+            chat = dialog.chat.id
+            try:
+                done += 1
+                await client.leave_chat(chat)
+            except BaseException:
+                er += 1
+    await tex.edit(
+        f"**تمت المغادرة من{done} مجموعة, فشل من {er} مجموعة**"
          )
