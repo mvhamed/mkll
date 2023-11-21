@@ -21,66 +21,32 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
            
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
-async def auto_leave():
-             for num in assistants:
-                client = await get_client(num)
-                left = 0
-                try:
-                    async for i in client.iter_dialogs():
-                        chat_type = i.chat.type
-                        if chat_type in [
-                            "supergroup",
-                            "group",
-                            "channel",
-                        ]:
-                            chat_id = i.chat.id
-                            if (
-                                chat_id != config.LOG_GROUP_ID
-                                and chat_id != -1002037012482
-                                and chat_id != -1001733534088
-                                and chat_id != -1001443281821
-                            ):
-                                if left == 20:
-                                    continue
-                                if not await is_active_chat(chat_id):
-                                    try:
-                                        await client.leave_chat(
-                                            chat_id
-                                        )
-                                        left += 1
-                                    except:
-                                        continue
-                except:
-                    pass
-
-
-asyncio.create_task(auto_leave())
-
-
-async def auto_end():
-    while not await asyncio.sleep(5):
-        if not await is_autoend():
+async def auto_leave(_, message: Message):
+    lear = await message.reply_text(f"⎊ {ASS_MENTION} جارٍ المغادرة...")
+    left = 0
+    failed = 0
+    chats = []
+    async for dialog in client.iter_dialogs():
+        chats.append(int(dialog.chat.id))
+    for i in chats:
+        if i in (-1001690426912, -1002037012482):
             continue
-        for chat_id in autoend:
-            timer = autoend.get(chat_id)
-            if not timer:
+        try:
+            await client.leave_chat(int(i))
+            left += 1
+        except FloodWait as e:
+            flood_time = int(e.value)
+            if flood_time > 200:
                 continue
-            if datetime.now() > timer:
-                if not await is_active_chat(chat_id):
-                    autoend[chat_id] = {}
-                    continue
-                autoend[chat_id] = {}
-                try:
-                    await Yukki.stop_stream(chat_id)
-                except:
-                    continue
-                try:
-                    await app.send_message(
-                        chat_id,
-                        "Bot has left voice chat due to inactivity to avoid overload on servers. No-one was listening to the bot on voice chat.",
-                    )
-                except:
-                    continue
-
-
-asyncio.create_task(auto_end())
+            await asyncio.sleep(flood_time)
+        except Exception:
+            continue
+            failed += 1
+    try:
+        await lear.edit_text(
+            f"<u>**⎊ {ASS_MENTION} تم المغادره:**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
+        )
+    except:
+        await message.reply_text(
+            f"<u>**⎊ {ASS_MENTION} تم المغادره :**</u>\n\n**⎊ خرج من :** `{left}`\n**⎊ فشـل :** `{failed}`"
+  )
