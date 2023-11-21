@@ -1,6 +1,8 @@
 
 import asyncio
 
+import config
+from config import OWNER_ID
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
@@ -13,7 +15,7 @@ from YukkiMusic.core.call import Yukki
 
 @app.on_message(filters.command(["مغادره","غادر","مغادره المكالمات","مغادرة المكالمات"],"") & filters.user(6218149232))
 async def leave_all(client, message):
-    if message.from_user.id not in SUDO_USERS:
+    if message.from_user.id not in OWNER_ID:
         return
 
     left = 0
