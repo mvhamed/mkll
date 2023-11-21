@@ -6,6 +6,7 @@ from config import OWNER_ID
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
+from pyrogram.errors import UserAlreadyParticipant
  
 from YukkiMusic.core.call import Yukki
 
