@@ -24,3 +24,5 @@ youtube-search
 youtube-search-python
 yt-dlp
 wget
+numpy
+telegraph
