@@ -38,7 +38,7 @@ loop = asyncio.get_running_loop()
 
 
 @app.on_message(
-    filters.command(["الميوزك"],"")
+    filters.command(["/start"],"")
     & filters.private
     & ~BANNED_USERS
 )
