@@ -3674,7 +3674,7 @@ txt = [
         
 
 
-@app.on_message(filters.command(["كت","تويت"],""))
+@app.on_message(filters.command(["كت","كت تويت"],""))
 
 
 async def cutt(client: Client, message: Message):
@@ -3685,5 +3685,5 @@ async def cutt(client: Client, message: Message):
 
       await message.reply(
         
-        f" - {message.from_user.mention} \n {a} ")
+        f" •- {message.from_user.mention} \n {a} ")
         
