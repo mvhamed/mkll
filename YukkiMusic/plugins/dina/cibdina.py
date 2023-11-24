@@ -76,7 +76,7 @@ REPLY_MESSAGE = "- اهلين ياحلو تحكم من الازرار اسفل"
 REPLY_MESSAGE_BUTTONS = [
 
          [
-             ("") 
+             ("السورس") 
          ], 
          [
              ("قسم الصوتيات"),                   
@@ -91,7 +91,7 @@ REPLY_MESSAGE_BUTTONS = [
 
              ("قسم الصور"),
 
-             ("السورس")
+             ("قسم الالعاب")
           
           ],
           [
@@ -204,7 +204,7 @@ REPFR_MESSAGEE = "**- هلا فيك في قسم  الاغاني والصوتيا
 REPFR_MESSAGEE_BUTTONSS = [
          [
 
-             ("أبراج 🧙‍♂️"),
+             ("فيلم"),
 
              ("غنيلي 🧚‍♂️")
 
@@ -218,9 +218,9 @@ REPFR_MESSAGEE_BUTTONSS = [
           ],
           [
 
-             ("حكمه"),
+             (""),
 
-             ("فيلم")
+             ("")
 
           ],
           [
@@ -349,6 +349,51 @@ REFRTY_MESSAGE_BUTTONSS = [
 async def com(_, message: Message):             
         text = REPLXCY_MESSAGE
         reply_markup = ReplyKeyboardMarkup(REFRTY_MESSAGE_BUTTONSS, resize_keyboard=True, selective=True)
+        await message.reply(
+              text=text,
+              reply_markup=reply_markup
+        )
+
+
+REPFVVYR_MESSAGEE = "**- اهلين ياحلو في قسم الالعاب والتسلية **"
+
+REPFVVYR_MESSAGEE_BUTTONSS = [
+         [
+
+             ("كت تويت"),
+
+             ("ابراج")
+
+          ],
+          [
+
+             (""),
+
+             ("")
+
+          ],
+          [
+
+             ("حكمه"),
+
+             ("العاب انلاين")
+
+          ],
+          [
+             ("رجوع") 
+          ], 
+          [
+
+             ("اخفاء الازرار")
+
+          ]
+]
+
+  
+@app.on_message(filters.command(["قسم الالعاب"],"") & filters.private)
+async def com(_, message: Message):             
+        text = REPFVVYR_MESSAGEE
+        reply_markup = ReplyKeyboardMarkup(REPFVVYR_MESSAGEE_BUTTONSS, resize_keyboard=True, selective=True)
         await message.reply(
               text=text,
               reply_markup=reply_markup
