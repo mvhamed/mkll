@@ -76,12 +76,12 @@ REPLY_MESSAGE = "- اهلين ياحلو تحكم من الازرار اسفل"
 REPLY_MESSAGE_BUTTONS = [
 
          [
-             ("السورس") 
+             ("") 
          ], 
          [
              ("قسم الصوتيات"),                   
 
-             ("اوامر دينا")
+             ("معلومات دينا")
 
 
 
@@ -168,17 +168,16 @@ async def addbot(client: Client, message: Message):
 
 
 
-REPLY_MESSAGEE = "- هلا فيك في قسم اوامر دينا"
+REPLY_MESSAGEE = "- هلا فيك في قسم معلومات دينا"
 
 REPLY_MESSAGE_BUTTONSS = [
          [
-             ("منصات الاغاني")
-          ],
-          [
+             ("طريقة البحث"), 
              ("اوامر الجروبات")
           ],
           [
-             ("طريقة البحث")
+             ("السورس"), 
+             ("المطور")
           ], 
           [
              ("رجوع")
@@ -189,7 +188,7 @@ REPLY_MESSAGE_BUTTONSS = [
 ]
 
   
-@app.on_message(filters.command(["اوامر دينا"],"") & filters.private)
+@app.on_message(filters.command(["معلومات دينا"],"") & filters.private)
 async def com(_, message: Message):             
         text = REPLY_MESSAGEE
         reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONSS, resize_keyboard=True, selective=True)
