@@ -16,7 +16,7 @@ from random import  choice, randint
   
 )
 async def yas(client, message):
-    usr = await client.get_chat(Asaaql7)
+    usr = await client.get_chat("Asaaql7")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
     await message.reply_photo(photo,       caption=f"**معلومات المطور الاساسي\n↜︙Dev Name ↬ :{name} \n↜︙Dev User ↬ :@{usr.username} \n↜︙Dev id ↬ :{usr.id}**", 
