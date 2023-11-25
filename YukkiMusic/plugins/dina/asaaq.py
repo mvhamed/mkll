@@ -43,7 +43,7 @@ async def madison(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo.file_id,       caption=f"""صورتك {choice(RAEAK)} 🧸♥️""", 
+    await message.reply_photo(photo,       caption=f"""صورتك {choice(RAEAK)} 🧸♥️""", 
     reply_markup=InlineKeyboardMarkup(
             [
                 [
