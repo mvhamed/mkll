@@ -40,7 +40,7 @@
       },
       "OWNER_ID": {
         "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
-        "value": "6218149232",
+        "value": "",
         "required": true
       },
       "STRING_SESSION": {
@@ -75,7 +75,7 @@
       },
       "UPSTREAM_REPO": {
         "description": "If you dont know this, Leave as it is",
-        "value": "https://github.com/Asaaq-ali/DinaMusic2",
+        "value": "https://github.com/Asaaq-ali/larinMusic3",
         "required": true
       },
       "UPSTREAM_BRANCH": {
