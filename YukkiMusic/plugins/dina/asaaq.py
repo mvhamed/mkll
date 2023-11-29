@@ -18,7 +18,7 @@ from typing import Union
   
 )
 async def yas(client, message):
-    usr = await client.get_chat("Asaaql7")
+    usr = await client.get_chat("Y_O_86")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
     await message.reply_photo(photo,       caption=f"**معلومات المطور الاساسي\n↜︙Dev Name ↬ :{name} \n↜︙Dev User ↬ :@{usr.username} \n↜︙Dev id ↬ :{usr.id}**", 
@@ -29,7 +29,7 @@ async def yas(client, message):
                         name, url=f"https://t.me/{usr.username}")
                  ], [
                     InlineKeyboardButton(
-                        "قناة المطور", url=f"https://t.me/Mlze1bot"),                        
+                        "قناة المطور", url=f"https://t.me/J_X_Z4"),                        
                  ],
             ]
         ),
@@ -38,7 +38,7 @@ async def yas(client, message):
 RAEAK = ["زينه","حلوه","فخمه","جميله","خوش","انيقه","مو حلوه","بشعه","مو زينه","كلش حلوه","استمر بيها","احبها","غيرها حباب"]
 
 
-@app.on_message(filters.command(["صورتي","رائي دينا بصورتك"],"")) 
+@app.on_message(filters.command(["صورتي","رائي لارين بصورتك"],"")) 
 async def madison(client: Client, message: Message):
     usr = await client.get_users(message.from_user.id)
     name = usr.first_name
