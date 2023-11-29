@@ -8,11 +8,10 @@ hachoir
 heroku3
 lyricsgenius
 motor
-ntgcalls
 pillow
 psutil
 pykeyboard
-py-tgcalls
+py-tgcalls==1.0.1
 git+https://github.com/Asaaq-ali/PyrogramMod@main
 python-dotenv
 pyyaml
