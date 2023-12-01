@@ -1,9 +1,9 @@
 #
-# Copyright (C) 2021-present by TeamYukki@Github, < https://github.com/TeamYukki >.
+# Copyright (C) 2023-2024 by YukkiOwner@Github, < https://github.com/YukkiOwner >.
 #
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
+# This file is part of < https://github.com/YukkiOwner/YukkiMusicBot > project,
 # and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
+# Please see < https://github.com/YukkiOwner/YukkiMusicBot/blob/master/LICENSE >
 #
 # All rights reserved.
 #
@@ -21,9 +21,9 @@ from ..logging import LOGGER
 
 class YukkiBot(Client):
     def __init__(self):
-        LOGGER(__name__).info("Starting Bot")
+        LOGGER(__name__).info(f"Starting Bot")
         super().__init__(
-            "YukkiMusicBot",
+            name="YukkiMusicBot",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
@@ -60,14 +60,16 @@ class YukkiBot(Client):
                     )
             except:
                 pass
+        else:
+            pass
         a = await self.get_chat_member(config.LOG_GROUP_ID, self.id)
-        if a.status != ChatMemberStatus:
+        if a.status != ChatMemberStatus.ADMINISTRATOR:
             LOGGER(__name__).error(
                 "Please promote Bot as Admin in Logger Group"
             )
             sys.exit()
         if get_me.last_name:
-            self.name = f"{get_me.first_name} {get_me.last_name}"
+            self.name = get_me.first_name + " " + get_me.last_name
         else:
             self.name = get_me.first_name
         LOGGER(__name__).info(f"MusicBot Started as {self.name}")
