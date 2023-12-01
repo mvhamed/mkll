@@ -19,7 +19,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
 
-from config import BANNED_USERS, lyrical
+from config import BANNED_USERS, CHANNEL_SUDO, YAFA_NAME, YAFA_CHANNEL, lyrical
 from strings import get_command
 from YukkiMusic import (Apple, Resso, SoundCloud, Spotify, Telegram,
                         YouTube, app)
@@ -37,6 +37,65 @@ from YukkiMusic.utils.inline.playlist import botplaylist_markup
 from YukkiMusic.utils.logger import play_logs
 from YukkiMusic.utils.stream.stream import stream
 
+
+force_btn = InlineKeyboardMarkup(
+
+
+    [
+
+
+        [
+
+
+            InlineKeyboardButton(
+
+
+                text=f"{YAFA_NAME}", url=f"{YAFA_CHANNEL}"
+
+
+            ),                        
+
+
+        ],        
+
+
+    ]
+
+
+)
+
+
+
+
+
+async def check_is_joined(message):    
+
+
+    try:
+
+
+        userid = message.from_user.id
+
+
+        status = await app.get_chat_member(f"{CHANNEL_SUDO}", userid)
+
+
+        return True
+
+
+    except Exception:
+
+
+        await message.reply_text( "⚠️︙عذراً عليك الانضمام الى هذهِ القناة أولاً :" ,reply_markup=force_btn,parse_mode="markdown",disable_web_page_preview=False)
+
+
+        return False
+
+
+
+
+
+# Command
 
 # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
