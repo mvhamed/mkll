@@ -68,6 +68,18 @@ force_btn = InlineKeyboardMarkup(
 
 
 
+
+
+# Command
+PLAY_COMMAND = get_command("PLAY_COMMAND")
+
+
+@app.on_message(
+    filters.command(["شغل","تشغيل","/play","شغلي"],"")
+    & filters.group
+    & ~BANNED_USERS
+)
+@PlayWrapper
 async def check_is_joined(message):    
 
 
@@ -97,16 +109,8 @@ async def check_is_joined(message):
 
 # Command
 
-# Command
-PLAY_COMMAND = get_command("PLAY_COMMAND")
 
 
-@app.on_message(
-    filters.command(["شغل","تشغيل","/play","شغلي"],"")
-    & filters.group
-    & ~BANNED_USERS
-)
-@PlayWrapper
 async def play_commnd(
     client,
     message: Message,
