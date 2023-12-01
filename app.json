@@ -62,7 +62,17 @@
         "description": "حط هنا معرف قناتك تبدء ب t.me/",
         "value": "",
         "required": false
-      },
+     },
+        "YAFA_CHANNEL": {
+        "description": "حط هنا معرف قناتك تبدء ب t.me/",
+        "value": "",
+        "required": false 
+     },
+        "CHANNEL_SUDO": {
+        "description": "حط هنا معرف قناتك تبدء ب t.me/",
+        "value": "",
+        "required": false 
+     },
       "YAFA_NAME": {
         "description": "حط هنا اسم قناتك او اسم قناة السورس",
         "value": "",
