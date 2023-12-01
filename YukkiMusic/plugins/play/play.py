@@ -54,7 +54,7 @@ async def check_is_joined(message):
         status = await app.get_chat_member("J_X_Z4", userid)
         return True
     except Exception:
-        await message.reply_text("*انت لست مشترك في قناة البوت @J_X_Z4 ** \n**انضم لتستطيع تشغيل الاغاني**",reply_markup=force_btn,parse_mode="markdown",disable_web_page_preview=False)
+        await message.reply_text("*انت لست مشترك في قناة البوت @J_X_Z4 ** \n**انضم لتستطيع تشغيل الاغاني**",reply_markup=force_btn,disable_web_page_preview=False)
         return False
 
 
