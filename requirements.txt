@@ -7,6 +7,7 @@ gitpython
 hachoir
 heroku3
 lyricsgenius
+ntgcalls
 motor
 pillow
 psutil
