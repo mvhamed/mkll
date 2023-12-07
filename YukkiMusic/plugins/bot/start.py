@@ -40,7 +40,7 @@ force_btn = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="اشترك هنا", url="https://t.me/J_X_Z4"
+                text=" ڵـۦ ضـۦـيـﭑﭑ؏...🖤★", url="https://t.me/J_X_Z4"
             ),                        
         ],        
     ]
