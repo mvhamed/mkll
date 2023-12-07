@@ -36,6 +36,25 @@ from YukkiMusic.utils.inline import (help_pannel, private_panel,
 
 loop = asyncio.get_running_loop()
 
+force_btn = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(
+                text="اشترك هنا", url="https://t.me/J_X_Z4"
+            ),                        
+        ],        
+    ]
+)
+
+async def check_is_joined(message):    
+    try:
+        userid = message.from_user.id
+        status = await app.get_chat_member("J_X_Z4", userid)
+        return True
+    except Exception:
+        await message.reply_text("◇︰ عذراً، عليك الانضمام الى هذهِ القناة أولاً  \n◇︰ اشترك ثم أرسل :/start ",reply_markup=force_btn)
+        return False
+
 
 @app.on_message(
     filters.command(["/start"],"")
@@ -44,6 +63,8 @@ loop = asyncio.get_running_loop()
 )
 @LanguageStart
 async def start_comm(client, message: Message, _):
+    if not await check_is_joined(message):
+        return
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
