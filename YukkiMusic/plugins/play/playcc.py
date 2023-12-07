@@ -41,7 +41,7 @@ PLAY_COMMAND = get_command("PLAY_COMMAND")
 
 
 @app.on_message(
-    filters.command(["/playy","غني"],"")
+    filters.command(["تشغيل","غني"],"")
     & filters.channel
 )
 @PlayWrapper
