@@ -65,13 +65,13 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
 CHANNEL_SUDO = getenv(
-    "CHANNEL_SUDO", "Mlze1bot"
+    "CHANNEL_SUDO", "I_l_D"
 )  # معرف قناتك بدون @
 YAFA_NAME = getenv(
-    "YAFA_NAME", "𝑺𝒐𝒖𝒓𝒄𝒆 -› 𝒅𝒊𝒏𝒂 "
+    "YAFA_NAME", "༺مشاعر مبعشره༻ "
 )  # اسم قناتك
 YAFA_CHANNEL = getenv(
-   " YAFA_CHANNEL", "https://t.me/Mlze1bot"
+   " YAFA_CHANNEL", "https://t.me/I_l_D"
 )  # رابط قناتك
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
@@ -81,7 +81,7 @@ SUPPORT_GROUP = getenv(
     "SUPPORT_GROUP", None
 )  # Example:- https://t.me/YukkiSupport
 ASAAQ_CHANNEL = getenv(
-   " ASAAQ_CHANNEL", "t.me/Mlze1bot"
+   " ASAAQ_CHANNEL", "t.me/I_l_D"
 ) 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", None)
