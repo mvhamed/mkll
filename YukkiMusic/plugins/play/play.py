@@ -39,26 +39,6 @@ from YukkiMusic.utils.logger import play_logs
 from YukkiMusic.utils.stream.stream import stream
 
 
-force_btn = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton(
-                text=" ڵـۦ ضـۦـيـﭑﭑ؏...🖤★", url="https://t.me/J_X_Z4"
-            ),                        
-        ],        
-    ]
-)
-
-async def check_is_joined(message):    
-    try:
-        userid = message.from_user.id
-        status = await app.get_chat_member("J_X_Z4", userid)
-        return True
-    except Exception:
-        await message.reply_text("◇︰ عذراً، عليك الانضمام الى هذهِ القناة أولاً  \n◇︰ اشترك ثم أرسل : شغل + اسم الاغنيه",reply_markup=force_btn)
-        return False
-
-        
 # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
 
