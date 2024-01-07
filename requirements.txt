@@ -1,5 +1,6 @@
 aiofiles
 aiohttp
+asyncio
 dnspython
 ffmpeg-python
 gitpython
@@ -7,13 +8,11 @@ hachoir
 heroku3
 lyricsgenius
 motor
-ntgcalls
 pillow
 psutil
 py-tgcalls==0.8.6
 pykeyboard
 pyrogram==1.4.16
-git+https://github.com/KurimuzonAkuma/pyrogram@dev
 python-dotenv
 pyyaml==5.3.1
 requests
@@ -22,4 +21,4 @@ spotipy
 tgcrypto
 youtube-search
 youtube-search-python
-git+https://github.com/yt-dlp/yt-dlp@master
+yt-dlp
